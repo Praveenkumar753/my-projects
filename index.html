@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>Body Mass Index Calculater</title>
+        <style>
+            /* Body style */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #e6d9d9;
+            }
+            
+            /* Header style */
+            h1 {
+                text-align: center;
+                color: #120909;
+            }
+            
+            /* Table style */
+            table {
+                border-collapse: collapse;
+                margin: 0 auto;
+                border: 1px solid #433b3b;
+                width: 50%;
+            }
+            
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-right: 1px solid #302929;
+            }
+            
+            th {
+                background-color: #544949;
+                font-weight: bold;
+            }
+            
+            /* Form style */
+            form {
+                margin: 20px auto;
+                width: 50%;
+                text-align: center;
+            }
+            
+            button[type=submit] {
+                padding: 10px 20px;
+                background-color: #333;
+                color: #bd9090;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            
+            button[type=submit]:hover {
+                background-color: #555;
+            }
+            
+            /*output styling*/
+            b {
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>BODY MASS INDEX CALCULATOR (BMI)</h1>
+        <p>BMI stands for Body Mass Index, which is a measurement used to determine if a person's weight is within a healthy range based on their height. </p>
+        <table>
+            <tr>
+                <th>BMI index range</th>
+                <th>Weight status</th>
+            </tr>
+            <tr>
+                <td>Less than 18.5</td>
+                <td>Underweight</td>
+            </tr>
+            <tr>
+                <td>18.5 to 24.9</td>
+                <td>Normal weight</td>
+            </tr>
+            <tr>
+                <td>25.0 to 29.9</td>
+                <td>Overweight</td>
+            </tr>
+            <tr>
+                <td>30.0 and above</td>
+                <td>Obese</td>
+            </tr>
+        </table>
+        
+        <form action="/" method="post">
+            <label for="weight">Weight (kg):</label>
+            <br>
+            <input type="text" id="weight" name="weight">
+            <br>
+            <label for="height">Height (cm):</label>
+            <br>
+            <input type="text" id="height" name="height">
+            <br>
+            <button type="submit">Calculate</button>
+        </form>
+        
+        {% if bmi %}
+        <b>{{ bmi }}</b>
+        {% endif %}
+        <p>Note:the World Health Organization (WHO) provides different BMI categories for men and women based on the same BMI values.
+             According to the WHO, a BMI of 18.5-24.9 is considered a healthy weight range for both men and women, but a BMI of 25-29.9 is classified as overweight for men, while a BMI of 25-29.9 is classified as pre-obese for women.
+             This reflects the fact that women tend to have a higher percentage of body fat than men, and may be at increased risk for certain health conditions at lower BMI levels.
+            </p>
+    </body>
+</html>
