@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Data Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #336699;
+        }
+
+        ul.messages {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: red;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        form input[type="file"],
+        form input[type="number"],
+        form input[type="submit"] {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #336699;
+        }
+
+        img {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload a CSV File</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <br>
+        <label for="x_column">Enter X-axis column number:</label>
+        <input type="number" name="x_column" id="x_column" min="0">
+        <br>
+        <label for="y_column">Enter Y-axis column number:</label>
+        <input type="number" name="y_column" id="y_column" min="0">
+        <br>
+        <input type="submit" value="Visualize">
+    </form>
+    {% if os.path.exists("static/plot.png") %}
+    <h2>Data Visualization</h2>
+    <!-- Add version parameter to the image URL -->
+    <img src="{{ url_for('static', filename='plot.png', v=1) }}" alt="Data Visualization">
+    {% endif %}
+
+
+
+
+    
+</body>
+</html>
