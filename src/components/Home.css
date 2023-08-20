@@ -1,0 +1,15 @@
+.homepage {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.homepage h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.homepage p {
+    font-size: 18px;
+}
